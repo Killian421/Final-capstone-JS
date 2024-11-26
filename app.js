@@ -2,10 +2,8 @@ const loginForm = document.getElementById('loginForm');
 const registerForm = document.getElementById('registerForm');
 const errorMessage = document.getElementById('errorMessage');
 
-// Check if the user exists in local storage
 const getUser = () => JSON.parse(localStorage.getItem('user')) || {};
 
-// Login functionality
 loginForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -25,37 +23,35 @@ loginForm?.addEventListener('submit', (event) => {
         errorMessage.textContent = '';
         alert('Login successful!');
 
-        window.location.href = 'shop.html'; // Redirect after login
+        window.location.href = 'welcome.html'; 
     } catch (error) {
         errorMessage.textContent = error.message;
     }
 });
 
-// Register functionality
 registerForm?.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const newUsername = document.getElementById('newUsername').value.trim();
     const newPassword = document.getElementById('newPassword').value.trim();
+    const confirmPassword = document.getElementById('confirmPassword').value.trim();
 
     try {
-        if (newUsername === '' || newPassword === '') {
-            throw new Error('Both fields are required');
+        if (newUsername === '' || newPassword === '' || confirmPassword === '') {
+            throw new Error('All fields are required');
         }
 
-        // Store the new user details in local storage
+        if (newPassword !== confirmPassword) {
+            throw new Error('Passwords do not match');
+        }
+
         localStorage.setItem('user', JSON.stringify({ username: newUsername, password: newPassword }));
 
         alert('Registration successful! You can now log in.');
-        window.location.href = 'index.html'; // Redirect to login page
+        window.location.href = 'index.html';
     } catch (error) {
         errorMessage.textContent = error.message;
     }
-
-});
-
-document.getElementById('go-back').addEventListener('click', () => {
-    window.location.href = 'index.html';
 });
 
 document.getElementById('go-back').addEventListener('click', () => {
@@ -63,7 +59,7 @@ document.getElementById('go-back').addEventListener('click', () => {
     
     if (confirmation) {
         window.location.href = 'index.html';
-    }else{
+    } else {
         window.location.href = 'register.html';
     }
 });

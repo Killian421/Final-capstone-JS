@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Simulation</title>
+    <link rel="stylesheet" href="atm.css">
+</head>
+<body>
+    <button id="back-button">Back</button>
+
+    <href><img class ="logo" src="deku.gif" alt="logo"></href>
+    <div class ="container">
+        <h1>PHILIPPINE NATIONAL BANKRUPTCY ASSOCIATION SCAMMER ATM</h1>
+        <div id="atm-interface">
+            <label for="balance">Your Balance:</label>
+            <center>
+            <input class="text" type="text" id="balance" readonly value="0">
+            </center>
+            <div id="actions">
+                <button onclick="checkBalance()">Check Balance</button>
+                <button onclick="deposit()">Deposit</button>
+                <button onclick="withdraw()">Withdraw</button>
+                <button onclick="exitATM()">Exit</button>
+            </div>
+        </div>
+        <p class="message" id="message"></p>
+    </div>
+
+    <script src="atm.js"></script>
+</body>
+</html>

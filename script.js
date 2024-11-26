@@ -25,14 +25,14 @@ function addSongToList(name, singer, link) {
 }
 
 function updateSongList() {
-    songListElement.innerHTML = ''; // Clear the list
+    songListElement.innerHTML = '';
 
     songList.forEach((song, index) => {
         const listItem = document.createElement('li');
         listItem.innerHTML = `
         <input type="checkbox" class="song-item-checkbox" ${song.checked ? 'checked' : ''} onchange="toggleSongCheck(${index})">
          ${song.name} , by: ${song.singer} 
-            <a href="${song.link}" target="_blank">(Click here to Listen)</a>
+            <a href="${song.link}" target="_blank">(Click here to Play)</a>
             <div class="song-item-buttons">
                 <button onclick="editSong(${index})">Edit</button>
                 <button onclick="deleteSong(${index})">Delete</button>
@@ -82,4 +82,9 @@ document.getElementById('logout-button').addEventListener('click', () => {
     } else {
         window.location.href = 'shop.html';
     }
+});
+
+document.getElementById('back-button').addEventListener('click', () => {    
+        window.location.href = 'welcome.html';
+   
 });

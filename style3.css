@@ -1,0 +1,112 @@
+body {
+    background-image: url("back8.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-icon {
+    font-size: 30px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 200px;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: -300px; 
+    height: 100vh;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar.open {
+    left: 0; 
+}
+
+.sidebar button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: #09ff0075;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px; /* Space between buttons */
+}
+
+.sidebar button:hover {
+    background-color: #888888;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    margin-left: 200px;
+}
+
+h1 {
+    font-family: fantasy;
+    font-size: 40px;
+    color: cyan;
+    margin: 0;
+}
+
+#logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#logout-button:hover {
+    background-color: #c4bdbe;
+}
+
+/* PNG */
+
+.transparent-png {
+    position: absolute; /* Position the image absolutely */
+    right: 150px;        /* Distance from the right side of the screen */
+    bottom: 20px;       /* Optional: Distance from the bottom of the screen */
+    width: 200px;       /* Set width as needed */
+    height: 400px;       /* Maintain aspect ratio */
+}
+
