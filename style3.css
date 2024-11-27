@@ -1,22 +1,14 @@
 body {
-    background-image: url("back8.jpg");
+    background-image: url("back.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0;
+    background-size: 100%;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
-}
-
-#menu-icon {
-    font-size: 30px;
-    color: white;
-    position: absolute;
-    top: 20px;
-    left: 5px;
-    cursor: pointer;
-    z-index: 1000;
+    min-height: 100vh;
 }
 
 .wrapper {
@@ -25,26 +17,45 @@ body {
     width: 100%;
 }
 
+/* Sidebar styles */
 .sidebar {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 200px;
-    padding: 20px;
     position: fixed;
+    left: -200px; /* Sidebar hidden off-screen by default */
     top: 0;
-    left: -300px; 
+    width: 200px;
     height: 100vh;
-    transition: left 0.3s ease;
-    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    pointer-events: auto;
+    transition: left 0.3s ease; /* Smooth transition for showing/hiding */
 }
 
 .sidebar.open {
-    left: 0; 
+    left: 0; /* Sidebar is visible when the 'open' class is added */
 }
 
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.full-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Buttons Section */
 .sidebar button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -54,34 +65,48 @@ body {
     color: white;
     border-radius: 10px;
     width: 100%;
-    margin-bottom: 10px; /* Space between buttons */
+    margin-bottom: 10px;
 }
 
 .sidebar button:hover {
     background-color: #888888;
 }
 
+/* Container styles */
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: transparent;
-    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
     max-width: 400px;
     text-align: center;
-    margin-left: 200px;
+}
+
+/* Header styles */
+h1{
+    font-family: fantasy;
+    color: cyan;
+    text-shadow: 
+        -1px -1px 0 black, /* Top-left */
+        1px -1px 0 black,  /* Top-right */
+        -1px 1px 0 black,  /* Bottom-left */
+        1px 1px 0 black;   /* Bottom-right */
+    text-align: center; /* Center-align both headings */
+    margin: 0;
 }
 
 h1 {
-    font-family: fantasy;
     font-size: 40px;
-    color: cyan;
-    margin: 0;
+    margin-bottom: 20px; /* Add spacing below h1 */
 }
+
 
 #logout-button {
     position: absolute;
@@ -100,13 +125,56 @@ h1 {
     background-color: #c4bdbe;
 }
 
-/* PNG */
-
-.transparent-png {
-    position: absolute; /* Position the image absolutely */
-    right: 150px;        /* Distance from the right side of the screen */
-    bottom: 20px;       /* Optional: Distance from the bottom of the screen */
-    width: 200px;       /* Set width as needed */
-    height: 400px;       /* Maintain aspect ratio */
+#menu-icon {
+    font-size: 30px;
+    color: rgb(0, 255, 255);
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
 }
 
+#menu-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Posters Section */
+/* General poster styles */
+/* Posters Section */
+.posters {
+    display: flex;
+    justify-content: space-between; /* Space between the two grids */
+    align-items: center; /* Centers vertically */
+    margin: 0 auto; /* Centers horizontally */
+    width: 90%; /* Adjust width if needed */
+    height: 80%; /* Adjust height if needed */
+    position: absolute; /* Positions relative to the viewport */
+    top: 50%; /* Push to middle vertically */
+    left: 51%; /* Push to middle horizontally */
+    transform: translate(-50%, -50%); /* Centers exactly */
+    padding: 20px; /* Optional padding */
+}
+
+
+.poster-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 45%; /* Each grid takes about half the width */
+}
+
+.poster-image {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.poster-image:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds shadow on hover */
+}
