@@ -54,13 +54,13 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="url"] {
-    width: 90%; /* Full-width inputs */
+    width: 9    0%; /* Full-width inputs */
     padding: 12px 15px;
     margin: 10px 0;
     border: 1px solid #ccc; /* Subtle border */
     border-radius: 8px;
     font-size: 16px;
-    font-family: "Poppins", Arial, sans-serif; /* Matching font style */
+    font-family: "Poppins", Arial, sans-serif; /* Matching font styl
     background-color: #f9f9f9;
     transition: border 0.3s ease, box-shadow 0.3s ease;
     outline: none;
